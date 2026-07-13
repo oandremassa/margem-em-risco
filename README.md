@@ -12,6 +12,8 @@ de SLA ou escopo executado sem cobrança.
 O projeto foi construído para localizar esses contratos, explicar a causa e
 organizar uma fila de ação.
 
+**[Abrir o dashboard interativo no Power BI](https://app.powerbi.com/view?r=eyJrIjoiMjEwZTZlOTQtZGYxNS00NTQ2LTllZjktZDc4YTNmZWRjYjcwIiwidCI6ImU4YjMwMjkyLTk1OTktNGU5Ni1hZDMwLTljODBjZDM3YWIyNCJ9)**
+
 ![Arquitetura](assets/arquitetura.svg)
 
 ## O que foi construído
@@ -27,7 +29,9 @@ organizar uma fila de ação.
 
 ## Dashboard
 
-O relatório está dividido em:
+O relatório publicado está disponível em [Power BI](https://app.powerbi.com/view?r=eyJrIjoiMjEwZTZlOTQtZGYxNS00NTQ2LTllZjktZDc4YTNmZWRjYjcwIiwidCI6ImU4YjMwMjkyLTk1OTktNGU5Ni1hZDMwLTljODBjZDM3YWIyNCJ9).
+
+A navegação foi organizada em oito páginas:
 
 1. Central Executiva
 2. Portfólio de Contratos
