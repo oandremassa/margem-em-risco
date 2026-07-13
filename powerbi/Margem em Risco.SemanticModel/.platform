@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Margem em Risco"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fb60ad22-87e5-4f36-8274-d2ae374f3c53"
+  }
+}

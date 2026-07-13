@@ -1,0 +1,73 @@
+/// Decomposição mensal das perdas e recuperação possível.
+table 'Perdas de Margem'
+	lineageTag: 70d022fb-70d4-47f3-a45b-e401d9f72687
+
+	column 'Mês Referência'
+		dataType: dateTime
+		lineageTag: b24679fc-1772-4477-b273-643dded698c8
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		lineageTag: b5c33487-9601-4ad8-9e66-81d6add6a77f
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: ecce6fd7-ef7b-4ea9-8421-932bb0acc8fa
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column 'Código Perda'
+		dataType: string
+		lineageTag: 87ffa9cd-7834-41c2-bfe8-b09fefb9a287
+		summarizeBy: none
+		sourceColumn: codigo_perda
+
+	column 'Causa Perda'
+		dataType: string
+		lineageTag: 8d14cab7-57db-413e-80c9-b8ed36830967
+		summarizeBy: none
+		sourceColumn: causa_perda
+
+	column 'Natureza Perda'
+		dataType: string
+		lineageTag: 320d750e-4eed-4655-aa3b-ca4f44904622
+		summarizeBy: none
+		sourceColumn: natureza_perda
+
+	column 'Valor Perda'
+		dataType: decimal
+		lineageTag: 205a6766-1103-4cec-a6fa-23e1059b739b
+		summarizeBy: sum
+		sourceColumn: valor_perda
+
+	column 'Taxa Recuperação'
+		dataType: decimal
+		lineageTag: d6f3b88a-f420-4841-89d9-bee3adf4dd5f
+		summarizeBy: sum
+		sourceColumn: taxa_recuperacao
+
+	column 'Valor Recuperável'
+		dataType: decimal
+		lineageTag: fe868260-b16c-4dc5-b178-9fd29c691089
+		summarizeBy: sum
+		sourceColumn: valor_recuperavel
+
+	column 'Observação Cálculo'
+		dataType: string
+		lineageTag: 4281aa0f-4239-495a-8cc4-5a2befa9e45b
+		summarizeBy: none
+		sourceColumn: observacao_calculo
+
+	partition 'Perdas de Margem' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_perdas_margem"]}[Data]
+				in
+				    Dados

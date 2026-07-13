@@ -1,0 +1,13 @@
+﻿contract_code;client_code;client_name;unit_code;service_code;manager_code;contract_status;billing_model;complexity_level;start_date;end_date;renewal_date;base_monthly_amount;contracted_positions;contracted_hours;target_margin_pct;adjustment_base_month;adjustment_index;state_code
+CT-001;C001;Hospital Vida Central;U001;FACINT;G001;Ativo;Mensal fixo;Alta;01/01/2024;;31/12/2026;R$ 580.000,00;82;18.040;14,5%;1;IPCA;SP
+CT-002;C002;Grupo Aurora Offices;U002;LIMPEZA;G002;Ativo;Mensal fixo;Média;15/02/2023;;14/02/2027;R$ 210.000,00;28;6.160;16,0%;5;IPCA;SP
+CT-003;C003;RotaSul Logística;U003;FACINT;G003;Ativo;Mensal fixo;Alta;2023-07-01;;2026-06-30;R$ 320.000,00;40;8.800;15,0%;7;IPCA;PR
+CT-004;C004;Metalnova Indústria;U004;MANUT;G004;Ativo;Mensal fixo;Alta;01/04/2022;;31/03/2026;R$ 460.000,00;60;13.200;15,0%;4;IPCA;MG
+CT-005;C005;Varejo Ponto Certo;U005;LIMPEZA;G005;Ativo;Por posto;Alta;10/09/2023;;09/09/2025;R$ 128.000,00;16;3.520;13,0%;9;IPCA;SP
+CT-006;C006;Condomínio Horizonte;U006;PORTARIA;G006;Ativo;Por posto;Média;01/11/2022;;31/10/2026;R$ 185.000,00;24;5.280;14,0%;11;IPCA;RJ
+CT-007;C007;Instituto Cidadania;U007;APOIO;G007;Ativo;Mensal fixo;Baixa;01/03/2024;;28/02/2027;R$ 265.000,00;30;6.600;15,0%;3;IPCA;MG
+CT-008;C008;TechCore Brasil;U008;RECEP;G008;Ativo;Mensal fixo;Média;01/09/2022;;31/08/2026;R$ 410.000,00;52;11.440;16,0%;9;IPCA;SP
+CT-009;C008;TechCore Brasil;U009;LIMPEZA;G001;Ativo;Mensal fixo;Alta;01/05/2024;;30/04/2027;R$ 340.000,00;46;10.120;15,0%;5;IPCA;SP
+CT-010;C008;TechCore Brasil;U010;FACINT;G002;Ativo;Mensal fixo;Alta;01/01/2023;;31/12/2026;R$ 690.000,00;90;19.800;14,0%;1;IPCA;SP
+;C001;Hospital Vida Central;U001;FACINT;G001;Ativo;Mensal fixo;Alta;01/01/2024;;31/12/2026;R$ 100.000,00;10;2.200;12,0%;1;IPCA;SP
+CT-099;C999;Cliente Inexistente;U999;LIMPEZA;G999;Ativo;Mensal fixo;Média;31/02/2024;;31/12/2026;valor inválido;-2;abc;150%;13;IPCA;XX

@@ -1,0 +1,193 @@
+/// Foto atual do portfólio para priorização.
+table 'Portfólio Atual'
+	lineageTag: f4eb99d0-e24c-4fde-b264-e4eeeeca338f
+
+	column 'Mês Referência'
+		dataType: dateTime
+		lineageTag: aabbcbc6-26b3-4c22-a114-6437042be679
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		lineageTag: c97838e7-83f1-47b2-9092-ca390d7e47d4
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: cbe9389c-9bcb-41a8-afbe-3e8824394ca7
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column Cliente
+		dataType: string
+		lineageTag: d61f76ad-2198-489c-9b92-46ccf80d3a2c
+		summarizeBy: none
+		sourceColumn: cliente
+
+	column Segmento
+		dataType: string
+		lineageTag: 8f8314eb-1007-4258-9d21-a02445e1bcc2
+		summarizeBy: none
+		sourceColumn: segmento
+
+	column Serviço
+		dataType: string
+		lineageTag: fa182f7e-5a2a-451f-b87b-aad2bdb132c0
+		summarizeBy: none
+		sourceColumn: servico
+
+	column Gestor
+		dataType: string
+		lineageTag: 51ae9b70-8a5e-4520-bb71-6612dd84b1ba
+		summarizeBy: none
+		sourceColumn: gestor
+
+	column Complexidade
+		dataType: string
+		lineageTag: 5910dabc-c946-422f-8488-98846657bf21
+		summarizeBy: none
+		sourceColumn: complexidade
+
+	column 'Receita Líquida'
+		dataType: decimal
+		lineageTag: 7a8392d8-5b7d-4b66-9a48-e8fb1d2528e1
+		summarizeBy: sum
+		sourceColumn: receita_liquida
+
+	column 'Margem Contribuição'
+		dataType: decimal
+		lineageTag: e74250a3-d092-4c67-afec-75127f0aef7e
+		summarizeBy: sum
+		sourceColumn: margem_contribuicao
+
+	column 'Margem %'
+		dataType: decimal
+		lineageTag: 341ff961-dafa-4c9d-bd93-feb948b21786
+		summarizeBy: sum
+		sourceColumn: margem_pct
+
+	column 'Meta Margem %'
+		dataType: decimal
+		lineageTag: 41345b39-dd8d-4099-8b0c-caf0227f8ca2
+		summarizeBy: sum
+		sourceColumn: meta_margem_pct
+
+	column 'Gap Margem %'
+		dataType: decimal
+		lineageTag: 1f910899-69e8-40ed-898f-d672a6b828db
+		summarizeBy: sum
+		sourceColumn: gap_margem_pct
+
+	column 'Vazamento Margem'
+		dataType: decimal
+		lineageTag: 1f9e670f-6add-475f-8fba-4bf3ce1eacbb
+		summarizeBy: sum
+		sourceColumn: vazamento_margem
+
+	column 'Score Risco'
+		dataType: decimal
+		lineageTag: 9e28b21d-ca11-4353-bc87-3cb8866a1edc
+		summarizeBy: sum
+		sourceColumn: score_risco
+
+	column 'Classe Risco'
+		dataType: string
+		lineageTag: d26a14f7-380c-498f-9114-f38abda0914a
+		summarizeBy: none
+		sourceColumn: classe_risco
+
+	column 'Risco Financeiro'
+		dataType: decimal
+		lineageTag: 3f9f9a3a-8e17-44c1-94ad-4d00e890486f
+		summarizeBy: sum
+		sourceColumn: risco_financeiro
+
+	column 'Risco Operacional'
+		dataType: decimal
+		lineageTag: 364fbf10-d5a9-45a1-961c-0c7bdf2a128a
+		summarizeBy: sum
+		sourceColumn: risco_operacional
+
+	column 'Risco Qualidade'
+		dataType: decimal
+		lineageTag: b3011fcd-2141-42be-bfba-da4169a275e9
+		summarizeBy: sum
+		sourceColumn: risco_qualidade
+
+	column 'Risco Contratual'
+		dataType: decimal
+		lineageTag: 597413e0-5f06-4c24-a3c6-fcce649f63bf
+		summarizeBy: sum
+		sourceColumn: risco_contratual
+
+	column 'Risco Pessoas'
+		dataType: decimal
+		lineageTag: bc37b689-3aa5-4cf1-a6f6-0fdd995dc573
+		summarizeBy: sum
+		sourceColumn: risco_pessoas
+
+	column 'Tendência Margem'
+		dataType: string
+		lineageTag: d7e7fb1f-9d63-4797-9abe-89f80964e568
+		summarizeBy: none
+		sourceColumn: tendencia_margem
+
+	column 'Data Renovação'
+		dataType: dateTime
+		lineageTag: 19b328c8-8d32-487c-92c9-7b903d2528ac
+		summarizeBy: none
+		sourceColumn: data_renovacao
+
+	column 'Dias para Renovação'
+		dataType: int64
+		lineageTag: b5832850-6031-4578-ac6d-29220029a36a
+		summarizeBy: sum
+		sourceColumn: dias_para_renovacao
+
+	column 'Principal Fator Risco'
+		dataType: string
+		lineageTag: 504f19d9-490f-473f-970e-bfbf05670360
+		summarizeBy: none
+		sourceColumn: principal_fator_risco
+
+	column 'Impacto Principal Fator'
+		dataType: decimal
+		lineageTag: 8733a7d4-3517-49d5-9aa6-bbafe66da2c3
+		summarizeBy: sum
+		sourceColumn: impacto_principal_fator
+
+	column 'Código Ação'
+		dataType: string
+		lineageTag: 2d08c620-c9d0-4ae8-9db5-a5811f7a768e
+		summarizeBy: none
+		sourceColumn: codigo_acao
+
+	column 'Ação Recomendada'
+		dataType: string
+		lineageTag: 846b19bb-7999-41d7-8b51-aa3e532fb076
+		summarizeBy: none
+		sourceColumn: acao_recomendada
+
+	column 'Valor Recuperável'
+		dataType: decimal
+		lineageTag: 2d2c9dd2-99ab-4b84-9f57-e5ff9d866dbc
+		summarizeBy: sum
+		sourceColumn: valor_recuperavel
+
+	column Prioridade
+		dataType: int64
+		lineageTag: 91fa1ba5-b371-4d5b-bf49-784d2a2d9802
+		summarizeBy: sum
+		sourceColumn: prioridade
+
+	partition 'Portfólio Atual' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_portfolio_atual"]}[Data]
+				in
+				    Dados

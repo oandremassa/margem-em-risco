@@ -1,0 +1,248 @@
+/// Histórico mensal financeiro, operacional e de risco.
+table 'Desempenho Mensal'
+	lineageTag: c2aa2dc8-43ac-45a3-8ae0-ff7f1a9d7f6c
+
+	column 'Mês Referência'
+		dataType: dateTime
+		lineageTag: d63758be-1c34-40d4-a7bf-09a1505d54ba
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+	column 'Chave Data'
+		dataType: int64
+		isHidden
+		lineageTag: 746f2803-aef8-44d4-a808-02f90ecda7af
+		summarizeBy: sum
+		sourceColumn: chave_data
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		lineageTag: f53f457e-bd52-4724-ab0d-6e2e77b017a8
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: 26276335-16ab-4d73-9ede-474f3f8abf80
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column Cliente
+		dataType: string
+		lineageTag: 83924bea-6f29-4f67-a2b7-663771179bfe
+		summarizeBy: none
+		sourceColumn: cliente
+
+	column Segmento
+		dataType: string
+		lineageTag: bf3d6707-f7d7-4cba-97e5-448e4e5fea21
+		summarizeBy: none
+		sourceColumn: segmento
+
+	column Serviço
+		dataType: string
+		lineageTag: 75537414-d423-4074-b91a-060b68911303
+		summarizeBy: none
+		sourceColumn: servico
+
+	column Gestor
+		dataType: string
+		lineageTag: 2b86b6b8-660f-4294-890b-e576c7b81c78
+		summarizeBy: none
+		sourceColumn: gestor
+
+	column Complexidade
+		dataType: string
+		lineageTag: 617b0baa-d879-4e5a-a21c-3ca215a99152
+		summarizeBy: none
+		sourceColumn: complexidade
+
+	column 'Data Renovação'
+		dataType: dateTime
+		lineageTag: 2e701c06-25af-4f95-a686-a80903a1ed58
+		summarizeBy: none
+		sourceColumn: data_renovacao
+
+	column 'Dias para Renovação'
+		dataType: int64
+		lineageTag: 2691682e-6ecc-4ef0-804d-019ed9341b52
+		summarizeBy: sum
+		sourceColumn: dias_para_renovacao
+
+	column 'Meta Margem %'
+		dataType: decimal
+		lineageTag: 68f7b2ef-4343-41f5-afe8-8e00837d214d
+		summarizeBy: sum
+		sourceColumn: meta_margem_pct
+
+	column 'Receita Bruta'
+		dataType: decimal
+		lineageTag: 5ba6822a-a8a9-4b0e-b78a-f1db77ee6277
+		summarizeBy: sum
+		sourceColumn: receita_bruta
+
+	column 'Receita Líquida'
+		dataType: decimal
+		lineageTag: 370401bf-1bf3-44b0-afb3-f8f82ef20ae1
+		summarizeBy: sum
+		sourceColumn: receita_liquida
+
+	column 'Custo Total'
+		dataType: decimal
+		lineageTag: d7bb7d02-8002-4782-9844-bf9be44cf069
+		summarizeBy: sum
+		sourceColumn: custo_total
+
+	column 'Margem Contribuição'
+		dataType: decimal
+		lineageTag: ef8add75-47cf-4fe2-8e8a-cb1f3a38a6d1
+		summarizeBy: sum
+		sourceColumn: margem_contribuicao
+
+	column 'Margem %'
+		dataType: decimal
+		lineageTag: e656275a-b767-4bcb-9da8-c55b95b3c50f
+		summarizeBy: sum
+		sourceColumn: margem_pct
+
+	column 'Gap Margem %'
+		dataType: decimal
+		lineageTag: 4d028ae0-13f3-45c0-92a2-f42413368eed
+		summarizeBy: sum
+		sourceColumn: gap_margem_pct
+
+	column 'Vazamento Margem'
+		dataType: decimal
+		lineageTag: 4315939a-586b-43ee-9ef7-0bdf86f4c052
+		summarizeBy: sum
+		sourceColumn: vazamento_margem
+
+	column 'Postos Previstos'
+		dataType: decimal
+		lineageTag: aa2d0bc9-3116-4a47-be68-1e4893179619
+		summarizeBy: sum
+		sourceColumn: postos_previstos
+
+	column 'Postos Ocupados'
+		dataType: decimal
+		lineageTag: 16ed6029-5a70-489e-84c8-7e04ebe3d15e
+		summarizeBy: sum
+		sourceColumn: postos_ocupados
+
+	column 'Postos Descobertos'
+		dataType: decimal
+		lineageTag: 673f118e-0f86-4ffa-a8e8-d17ef4923378
+		summarizeBy: sum
+		sourceColumn: postos_descobertos
+
+	column 'Cobertura %'
+		dataType: decimal
+		lineageTag: 632103bd-1966-4dc5-a253-ed96469a1ad2
+		summarizeBy: sum
+		sourceColumn: cobertura_pct
+
+	column 'Horas Previstas'
+		dataType: decimal
+		lineageTag: 8dc48a1c-32ad-4ece-94bd-b1c670934883
+		summarizeBy: sum
+		sourceColumn: horas_previstas
+
+	column 'Horas Regulares'
+		dataType: decimal
+		lineageTag: fc0498f4-43fe-4a8c-9a95-e61654a7827c
+		summarizeBy: sum
+		sourceColumn: horas_regulares
+
+	column 'Horas Extras'
+		dataType: decimal
+		lineageTag: 67630cb9-cc4f-469d-a8c2-9e1fbd1bee5e
+		summarizeBy: sum
+		sourceColumn: horas_extras
+
+	column 'Horas Extras %'
+		dataType: decimal
+		lineageTag: 963a68ab-ecdd-44d1-91de-d4686eb0323a
+		summarizeBy: sum
+		sourceColumn: horas_extras_pct
+
+	column 'Horas Ausência'
+		dataType: decimal
+		lineageTag: e0f4d2cf-4642-4d71-8655-0b89a31d48d2
+		summarizeBy: sum
+		sourceColumn: horas_ausencia
+
+	column 'Absenteísmo %'
+		dataType: decimal
+		lineageTag: f5f798a7-8bfa-43c6-950d-ac7aa8e4f3f6
+		summarizeBy: sum
+		sourceColumn: absenteismo_pct
+
+	column 'Vagas Abertas'
+		dataType: int64
+		lineageTag: bec6e087-04f8-45ac-a06d-9b1f05a39d21
+		summarizeBy: sum
+		sourceColumn: vagas_abertas
+
+	column 'Dias Reposição'
+		dataType: decimal
+		lineageTag: 1e6deca3-65f3-4fa6-9288-7ec133bed966
+		summarizeBy: sum
+		sourceColumn: dias_reposicao
+
+	column 'Quantidade Ocorrências'
+		dataType: int64
+		lineageTag: 2b1e698e-d6b7-42a1-98d7-ab4971dcc417
+		summarizeBy: sum
+		sourceColumn: quantidade_ocorrencias
+
+	column 'Ocorrências Críticas'
+		dataType: int64
+		lineageTag: c34e2fe2-86fc-40cd-9375-2b4b83fe587d
+		summarizeBy: sum
+		sourceColumn: ocorrencias_criticas
+
+	column 'Ocorrências Reincidentes'
+		dataType: int64
+		lineageTag: beb2b8f5-40ca-410c-96ed-69ccff29c613
+		summarizeBy: sum
+		sourceColumn: ocorrencias_reincidentes
+
+	column 'SLA %'
+		dataType: decimal
+		lineageTag: 5c1ca331-e2de-4354-853b-dbc52caf0729
+		summarizeBy: sum
+		sourceColumn: sla_pct
+
+	column 'Reajustes Abertos'
+		dataType: int64
+		lineageTag: c09c65c4-c4fb-4115-b3a2-9e9d2d43a036
+		summarizeBy: sum
+		sourceColumn: reajustes_abertos
+
+	column 'Tendência Margem'
+		dataType: string
+		lineageTag: 4bdbcc3e-8125-4cc1-aa32-1574749c2ce2
+		summarizeBy: none
+		sourceColumn: tendencia_margem
+
+	column 'Score Risco'
+		dataType: decimal
+		lineageTag: 47081bad-1776-4bfa-bac4-7c050a409c33
+		summarizeBy: sum
+		sourceColumn: score_risco
+
+	column 'Classe Risco'
+		dataType: string
+		lineageTag: 2efadaf7-ca1a-4017-bad4-96943df1abcd
+		summarizeBy: none
+		sourceColumn: classe_risco
+
+	partition 'Desempenho Mensal' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_desempenho_mensal"]}[Data]
+				in
+				    Dados

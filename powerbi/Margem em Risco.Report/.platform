@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Margem em Risco"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5a3c2c1a-1496-46ab-84e7-ea5ecafe764b"
+  }
+}

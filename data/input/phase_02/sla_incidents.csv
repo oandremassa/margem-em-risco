@@ -1,0 +1,18 @@
+﻿incident_number;contract_code;unit_code;incident_category;incident_subcategory;root_cause;opened_at;closed_at;agreed_deadline_hours;severity;incident_status;recurrence_flag;deduction_amount;penalty_amount;emergency_cost
+INC-2025-0001;CT-001;U001;Cobertura;Posto descoberto;Absenteísmo;03/01/2025 06:30;03/01/2025 18:40;8;Alta;Fechada;Sim;R$ 2.000,00;R$ 4.000,00;R$ 1.200,00
+INC-2025-0002;CT-001;U001;Cobertura;Atraso na substituição;Equipe de cobertura insuficiente;12/01/2025 07:10;13/01/2025 11:30;12;Crítica;Fechada;Sim;R$ 3.500,00;R$ 6.000,00;R$ 2.500,00
+INC-2025-0003;CT-002;U002;Qualidade;Falha de limpeza;Procedimento não seguido;18/01/2025 09:00;18/01/2025 13:20;8;Baixa;Fechada;Não;R$ 0,00;R$ 0,00;R$ 0,00
+INC-2025-0004;CT-003;U003;Escopo;Atividade não prevista;Solicitação informal do cliente;08/01/2025 10:00;09/01/2025 16:00;24;Média;Fechada;Sim;R$ 0,00;R$ 0,00;R$ 900,00
+INC-2025-0005;CT-004;U004;Manutenção;Atraso no atendimento;Escala técnica insuficiente;04/01/2025 02:10;05/01/2025 12:30;6;Crítica;Fechada;Sim;R$ 2.500,00;R$ 8.000,00;R$ 4.000,00
+INC-2025-0006;CT-004;U004;Manutenção;Falha de equipamento;Manutenção preventiva atrasada;11/01/2025 14:20;13/01/2025 18:00;12;Alta;Fechada;Sim;R$ 3.000,00;R$ 7.000,00;R$ 5.500,00
+INC-2025-0007;CT-004;U004;SLA;Prazo não cumprido;Falha de supervisão;22/01/2025 08:00;24/01/2025 17:30;8;Crítica;Fechada;Sim;R$ 4.000,00;R$ 7.000,00;R$ 3.000,00
+INC-2025-0008;CT-005;U005;Cobertura;Posto descoberto;Deslocamento entre lojas;07/01/2025 08:00;07/01/2025 19:00;8;Alta;Fechada;Não;R$ 0,00;R$ 2.000,00;R$ 1.000,00
+INC-2025-0009;CT-006;U006;Atendimento;Atraso no atendimento;Troca de turno;15/01/2025 18:00;15/01/2025 20:30;4;Baixa;Fechada;Não;R$ 0,00;R$ 0,00;R$ 0,00
+INC-2025-0010;CT-007;U007;Atendimento;Solicitação administrativa;Demanda pontual;09/01/2025 11:00;09/01/2025 12:15;4;Baixa;Fechada;Não;R$ 0,00;R$ 0,00;R$ 0,00
+INC-2025-0011;CT-008;U008;Atendimento;Fila na recepção;Pico de visitantes;20/01/2025 08:30;20/01/2025 11:15;4;Média;Fechada;Não;R$ 0,00;R$ 0,00;R$ 0,00
+INC-2025-0012;CT-009;U009;Cobertura;Posto descoberto;Vagas em aberto;06/01/2025 06:00;06/01/2025 17:00;8;Alta;Fechada;Sim;R$ 0,00;R$ 0,00;R$ 1.500,00
+INC-2025-0013;CT-009;U009;Qualidade;Falha de limpeza;Equipe incompleta;19/01/2025 07:00;19/01/2025 20:20;8;Alta;Fechada;Sim;R$ 0,00;R$ 0,00;R$ 1.000,00
+INC-2025-0014;CT-010;U010;Manutenção;Falha de equipamento;Desgaste natural;26/01/2025 15:00;26/01/2025 19:00;8;Média;Fechada;Não;R$ 0,00;R$ 0,00;R$ 500,00
+INC-2025-0015;CT-010;U010;Atendimento;Atraso no atendimento;Pico operacional;29/01/2025 10:00;29/01/2025 12:00;4;Baixa;Fechada;Não;R$ 0,00;R$ 0,00;R$ 0,00
+INC-2025-9999;CT-999;U999;Qualidade;Falha de limpeza;Equipe incompleta;01/01/2025 08:00;01/01/2025 10:00;4;Média;Fechada;Não;R$ 0,00;R$ 0,00;R$ 0,00
+INC-2025-ERR;CT-001;U001;Qualidade;Falha de limpeza;Equipe incompleta;10/01/2025 10:00;09/01/2025 09:00;4;Média;Fechada;Não;R$ 0,00;R$ 0,00;R$ 0,00

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "ReportSection7ed454ca3ea747f3b2d29d46",
+  "displayName": "Portfólio de Contratos",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

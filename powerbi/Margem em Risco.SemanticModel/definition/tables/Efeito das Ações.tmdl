@@ -1,0 +1,117 @@
+/// Comparação antes e depois das ações concluídas.
+table 'Efeito das Ações'
+	lineageTag: 702b83ab-b092-44b1-b2e5-6574d54d27ef
+
+	column 'Chave Ação'
+		dataType: int64
+		isHidden
+		isKey
+		lineageTag: b118b532-18c6-4646-b33a-d898ea875328
+		summarizeBy: sum
+		sourceColumn: chave_acao
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		lineageTag: 3eb16e2d-e64b-4144-9d06-dfec16d6c131
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: b095fa94-7351-4a0c-b159-0a520f204c47
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column 'Código Ação'
+		dataType: string
+		lineageTag: afde9a30-5bb6-478b-a20c-5c78129cdb15
+		summarizeBy: none
+		sourceColumn: codigo_acao
+
+	column Ação
+		dataType: string
+		lineageTag: fd0e95c0-1f2a-499e-93c6-ed9f1b788b2c
+		summarizeBy: none
+		sourceColumn: acao
+
+	column 'Data Início'
+		dataType: dateTime
+		lineageTag: ec0c174b-929b-48dd-92c1-271f8c8a10ae
+		summarizeBy: none
+		sourceColumn: data_inicio
+
+	column 'Data Conclusão'
+		dataType: dateTime
+		lineageTag: 62a32a51-bf7e-47be-8129-e50273d0a26b
+		summarizeBy: none
+		sourceColumn: data_conclusao
+
+	column 'Margem Antes %'
+		dataType: decimal
+		lineageTag: 8d901a61-4460-483c-9148-d9efe92357db
+		summarizeBy: sum
+		sourceColumn: margem_antes_pct
+
+	column 'Margem Depois %'
+		dataType: decimal
+		lineageTag: 4b4ab210-9b1b-456a-ab99-901d68a2fbd2
+		summarizeBy: sum
+		sourceColumn: margem_depois_pct
+
+	column 'Variação Margem p.p.'
+		dataType: decimal
+		lineageTag: 78fd93ee-ba81-42d7-92b1-9731b6849417
+		summarizeBy: sum
+		sourceColumn: variacao_margem_pp
+
+	column 'Horas Extras Antes %'
+		dataType: decimal
+		lineageTag: cd63c2cc-0532-470c-a885-f3c2bcc949b2
+		summarizeBy: sum
+		sourceColumn: horas_extras_antes_pct
+
+	column 'Horas Extras Depois %'
+		dataType: decimal
+		lineageTag: 84bd59eb-ab8b-46b7-8e41-a013ea65f25f
+		summarizeBy: sum
+		sourceColumn: horas_extras_depois_pct
+
+	column 'Cobertura Antes %'
+		dataType: decimal
+		lineageTag: 6778a7a7-bc63-432b-9116-48fd273361a1
+		summarizeBy: sum
+		sourceColumn: cobertura_antes_pct
+
+	column 'Cobertura Depois %'
+		dataType: decimal
+		lineageTag: fc665d5e-e704-4def-9731-5b84d12cde83
+		summarizeBy: sum
+		sourceColumn: cobertura_depois_pct
+
+	column 'SLA Antes %'
+		dataType: decimal
+		lineageTag: aea9c659-8d99-44a4-a760-4e6a721b9b76
+		summarizeBy: sum
+		sourceColumn: sla_antes_pct
+
+	column 'SLA Depois %'
+		dataType: decimal
+		lineageTag: 0a7decb6-54b4-4a42-94af-8448ff9414c3
+		summarizeBy: sum
+		sourceColumn: sla_depois_pct
+
+	column 'Impacto Realizado'
+		dataType: decimal
+		lineageTag: 45df9d03-b0ee-4ff5-9061-f065094bd42d
+		summarizeBy: sum
+		sourceColumn: impacto_realizado
+
+	partition 'Efeito das Ações' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_efeito_acoes"]}[Data]
+				in
+				    Dados

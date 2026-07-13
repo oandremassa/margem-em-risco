@@ -1,0 +1,59 @@
+﻿contract_code;unit_code;reference_period;cost_group;cost_category;cost_subcategory;actual_amount;budget_amount;source_system;recurring_flag;extraordinary_flag;allocation_flag;entry_type
+CT-001;U001;01/2025;Mão de obra;Folha;Salários;R$ 320.000,00;R$ 302.000,00;FOLHA;Sim;Não;Não;Débito
+CT-001;U001;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 100.000,00;R$ 94.000,00;FOLHA;Sim;Não;Não;Débito
+CT-001;U001;01/2025;Mão de obra;Benefícios;Benefícios;R$ 70.000,00;R$ 66.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-001;U001;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 45.000,00;R$ 18.000,00;FOLHA;Não;Sim;Não;Débito
+CT-001;U001;01/2025;Mão de obra;Cobertura;Cobertura emergencial;R$ 20.000,00;R$ 5.000,00;OPERACAO;Não;Sim;Não;Débito
+CT-001;U001;01/2025;Operação;Materiais;Materiais de limpeza;R$ 10.000,00;R$ 10.000,00;COMPRAS;Sim;Não;Não;Débito
+CT-002;U002;01/2025;Mão de obra;Folha;Salários;R$ 110.000,00;R$ 108.000,00;FOLHA;Sim;Não;Não;Débito
+CT-002;U002;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 35.000,00;R$ 34.000,00;FOLHA;Sim;Não;Não;Débito
+CT-002;U002;01/2025;Mão de obra;Benefícios;Benefícios;R$ 25.000,00;R$ 24.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-002;U002;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 6.000,00;R$ 4.500,00;FOLHA;Não;Sim;Não;Débito
+CT-002;U002;01/2025;Operação;Materiais;Materiais de limpeza;R$ 18.000,00;R$ 17.000,00;COMPRAS;Sim;Não;Não;Débito
+CT-003;U003;01/2025;Mão de obra;Folha;Salários;R$ 180.000,00;R$ 168.000,00;FOLHA;Sim;Não;Não;Débito
+CT-003;U003;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 55.000,00;R$ 51.000,00;FOLHA;Sim;Não;Não;Débito
+CT-003;U003;01/2025;Mão de obra;Benefícios;Benefícios;R$ 38.000,00;R$ 36.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-003;U003;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 12.000,00;R$ 6.000,00;FOLHA;Não;Sim;Não;Débito
+CT-003;U003;01/2025;Operação;Materiais;Materiais de limpeza;R$ 21.000,00;R$ 18.000,00;COMPRAS;Sim;Não;Não;Débito
+CT-004;U004;01/2025;Mão de obra;Folha;Salários;R$ 215.000,00;R$ 205.000,00;FOLHA;Sim;Não;Não;Débito
+CT-004;U004;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 68.000,00;R$ 65.000,00;FOLHA;Sim;Não;Não;Débito
+CT-004;U004;01/2025;Mão de obra;Benefícios;Benefícios;R$ 48.000,00;R$ 45.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-004;U004;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 22.000,00;R$ 10.000,00;FOLHA;Não;Sim;Não;Débito
+CT-004;U004;01/2025;Operação;Equipamentos;Manutenção de equipamentos;R$ 25.000,00;R$ 18.000,00;MANUTENCAO;Não;Sim;Não;Débito
+CT-004;U004;01/2025;Operação;Supervisão;Supervisão de campo;R$ 12.000,00;R$ 12.000,00;OPERACAO;Sim;Não;Não;Débito
+CT-005;U005;01/2025;Mão de obra;Folha;Salários;R$ 70.000,00;R$ 65.000,00;FOLHA;Sim;Não;Não;Débito
+CT-005;U005;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 22.000,00;R$ 20.500,00;FOLHA;Sim;Não;Não;Débito
+CT-005;U005;01/2025;Mão de obra;Benefícios;Benefícios;R$ 15.000,00;R$ 14.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-005;U005;01/2025;Operação;Transporte;Deslocamentos;R$ 14.000,00;R$ 7.000,00;OPERACAO;Sim;Não;Não;Débito
+CT-005;U005;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 7.000,00;R$ 3.000,00;FOLHA;Não;Sim;Não;Débito
+CT-006;U006;01/2025;Mão de obra;Folha;Salários;R$ 96.000,00;R$ 94.000,00;FOLHA;Sim;Não;Não;Débito
+CT-006;U006;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 30.000,00;R$ 29.000,00;FOLHA;Sim;Não;Não;Débito
+CT-006;U006;01/2025;Mão de obra;Benefícios;Benefícios;R$ 22.000,00;R$ 21.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-006;U006;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 5.000,00;R$ 6.000,00;FOLHA;Não;Sim;Não;Débito
+CT-006;U006;01/2025;Operação;Supervisão;Supervisão de campo;R$ 7.000,00;R$ 7.000,00;OPERACAO;Sim;Não;Não;Débito
+CT-007;U007;01/2025;Mão de obra;Folha;Salários;R$ 120.000,00;R$ 122.000,00;FOLHA;Sim;Não;Não;Débito
+CT-007;U007;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 38.000,00;R$ 39.000,00;FOLHA;Sim;Não;Não;Débito
+CT-007;U007;01/2025;Mão de obra;Benefícios;Benefícios;R$ 28.000,00;R$ 29.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-007;U007;01/2025;Operação;Supervisão;Supervisão de campo;R$ 9.000,00;R$ 9.000,00;OPERACAO;Sim;Não;Não;Débito
+CT-007;U007;01/2025;Operação;Materiais;Materiais administrativos;R$ 15.000,00;R$ 15.000,00;COMPRAS;Sim;Não;Não;Débito
+CT-008;U008;01/2025;Mão de obra;Folha;Salários;R$ 205.000,00;R$ 198.000,00;FOLHA;Sim;Não;Não;Débito
+CT-008;U008;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 65.000,00;R$ 62.000,00;FOLHA;Sim;Não;Não;Débito
+CT-008;U008;01/2025;Mão de obra;Benefícios;Benefícios;R$ 46.000,00;R$ 44.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-008;U008;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 18.000,00;R$ 9.000,00;FOLHA;Não;Sim;Não;Débito
+CT-008;U008;01/2025;Operação;Supervisão;Supervisão de campo;R$ 15.000,00;R$ 15.000,00;OPERACAO;Sim;Não;Não;Débito
+CT-008;U008;01/2025;Operação;Materiais;Materiais administrativos;R$ 20.000,00;R$ 18.000,00;COMPRAS;Sim;Não;Não;Débito
+CT-009;U009;01/2025;Mão de obra;Folha;Salários;R$ 160.000,00;R$ 156.000,00;FOLHA;Sim;Não;Não;Débito
+CT-009;U009;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 50.000,00;R$ 49.000,00;FOLHA;Sim;Não;Não;Débito
+CT-009;U009;01/2025;Mão de obra;Benefícios;Benefícios;R$ 35.000,00;R$ 34.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-009;U009;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 19.000,00;R$ 8.000,00;FOLHA;Não;Sim;Não;Débito
+CT-009;U009;01/2025;Mão de obra;Cobertura;Cobertura emergencial;R$ 10.000,00;R$ 3.000,00;OPERACAO;Não;Sim;Não;Débito
+CT-009;U009;01/2025;Operação;Materiais;Materiais de limpeza;R$ 12.000,00;R$ 11.000,00;COMPRAS;Sim;Não;Não;Débito
+CT-010;U010;01/2025;Mão de obra;Folha;Salários;R$ 330.000,00;R$ 325.000,00;FOLHA;Sim;Não;Não;Débito
+CT-010;U010;01/2025;Mão de obra;Encargos;Encargos sociais;R$ 103.000,00;R$ 101.000,00;FOLHA;Sim;Não;Não;Débito
+CT-010;U010;01/2025;Mão de obra;Benefícios;Benefícios;R$ 72.000,00;R$ 70.000,00;BENEFICIOS;Sim;Não;Não;Débito
+CT-010;U010;01/2025;Mão de obra;Custos extraordinários;Horas adicionais;R$ 28.000,00;R$ 18.000,00;FOLHA;Não;Sim;Não;Débito
+CT-010;U010;01/2025;Operação;Materiais;Materiais de limpeza;R$ 26.000,00;R$ 25.000,00;COMPRAS;Sim;Não;Não;Débito
+CT-010;U010;01/2025;Operação;Equipamentos;Manutenção de equipamentos;R$ 18.000,00;R$ 17.000,00;MANUTENCAO;Sim;Não;Não;Débito
+CT-010;U010;01/2025;Operação;Supervisão;Supervisão de campo;R$ 13.000,00;R$ 13.000,00;OPERACAO;Sim;Não;Não;Débito
+CT-999;U999;01/2025;Mão de obra;Folha;Salários;R$ 10.000,00;R$ 9.000,00;ERP;Sim;Não;Não;Débito
+CT-001;U001;01/2025;Mão de obra;Folha;Salários;valor inválido;R$ 9.000,00;ERP;Sim;Não;Não;Débito

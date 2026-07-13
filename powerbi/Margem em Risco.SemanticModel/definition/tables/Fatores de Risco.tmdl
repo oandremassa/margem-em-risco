@@ -1,0 +1,79 @@
+/// Fatores que compõem o risco de cada contrato.
+table 'Fatores de Risco'
+	lineageTag: b3a978f5-6204-4a69-a2f2-e5ba21342537
+
+	column 'Mês Referência'
+		dataType: dateTime
+		lineageTag: f549942d-e48c-403d-8150-20b9227ea54e
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		lineageTag: 28833b7d-4589-4395-8a6e-b45850da69b8
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: f14f0246-bda6-4093-8cd0-7a04f6d21204
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column 'Pilar Risco'
+		dataType: string
+		lineageTag: ca2eff1e-ac02-4551-9dbc-75114ed67ca4
+		summarizeBy: none
+		sourceColumn: pilar_risco
+
+	column 'Código Fator'
+		dataType: string
+		lineageTag: 9cfae660-fcc1-4807-a1fb-9c98334dd02e
+		summarizeBy: none
+		sourceColumn: codigo_fator
+
+	column 'Fator Risco'
+		dataType: string
+		lineageTag: f208f826-9af7-4f67-a7e3-5280b071962c
+		summarizeBy: none
+		sourceColumn: fator_risco
+
+	column 'Valor Observado'
+		dataType: decimal
+		lineageTag: 88fcf18a-a432-4c1e-9053-4a37856d7efe
+		summarizeBy: sum
+		sourceColumn: valor_observado
+
+	column 'Valor Referência'
+		dataType: decimal
+		lineageTag: b27b81cc-07d1-4f01-b601-a821f2990954
+		summarizeBy: sum
+		sourceColumn: valor_referencia
+
+	column 'Pontuação Fator'
+		dataType: decimal
+		lineageTag: 1587bba9-4428-4050-8ca4-5c20ca6105be
+		summarizeBy: sum
+		sourceColumn: pontuacao_fator
+
+	column 'Impacto Estimado'
+		dataType: decimal
+		lineageTag: 60ed09a9-6f03-4e06-8dac-b486fd956554
+		summarizeBy: sum
+		sourceColumn: impacto_estimado
+
+	column 'Ordem Fator'
+		dataType: int64
+		lineageTag: a6e8bc18-428e-4681-ac42-444b17437952
+		summarizeBy: sum
+		sourceColumn: ordem_fator
+
+	partition 'Fatores de Risco' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_fatores_risco"]}[Data]
+				in
+				    Dados

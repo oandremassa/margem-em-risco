@@ -1,0 +1,531 @@
+/// Medidas utilizadas no relatório.
+table Métricas
+	lineageTag: 91f15cbd-3696-4747-9f04-33a1854d0f5e
+
+	/// Medida do produto Margem em Risco: Receita Líquida Atual.
+	measure 'Receita Líquida Atual' = COALESCE ( SUM ( 'Portfólio Atual'[Receita Líquida] ), 0 )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Executivo
+		lineageTag: 51677ebb-a699-4c14-b437-089fe980d14f
+
+	/// Medida do produto Margem em Risco: Margem Atual.
+	measure 'Margem Atual' = COALESCE ( DIVIDE ( SUM ( 'Portfólio Atual'[Margem Contribuição] ), SUM ( 'Portfólio Atual'[Receita Líquida] ) ), 0 )
+		formatString: 0.0%
+		displayFolder: Executivo
+		lineageTag: 16329886-c68e-42a6-85a9-4f7bdb2869ff
+
+	/// Medida do produto Margem em Risco: Receita em Risco Atual.
+	measure 'Receita em Risco Atual' = 3 * CALCULATE ( COALESCE ( SUM ( 'Portfólio Atual'[Receita Líquida] ), 0 ), KEEPFILTERS ( 'Portfólio Atual'[Score Risco] >= 60 ) )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Executivo
+		lineageTag: 3f167d6e-d86c-4b83-b887-5184a6a60305
+
+	/// Medida do produto Margem em Risco: Valor Recuperável Atual.
+	measure 'Valor Recuperável Atual' = CALCULATE ( COALESCE ( SUM ( 'Portfólio Atual'[Valor Recuperável] ), 0 ), KEEPFILTERS ( 'Portfólio Atual'[Score Risco] >= 60 ) )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Executivo
+		lineageTag: 1a38f8b7-940d-4107-bf34-36369ba64c86
+
+	/// Medida do produto Margem em Risco: Contratos Críticos.
+	measure 'Contratos Críticos' = COALESCE ( CALCULATE ( DISTINCTCOUNT ( 'Portfólio Atual'[Código Contrato] ), 'Portfólio Atual'[Classe Risco] = "Crítico" ), 0 )
+		formatString: 0
+		displayFolder: Executivo
+		lineageTag: 216fca06-d6bb-4704-85cf-38e5947ccca5
+
+	/// Medida do produto Margem em Risco: Contratos com Ação.
+	measure 'Contratos com Ação' = CALCULATE ( DISTINCTCOUNT ( 'Fila de Ações'[Código Contrato] ), NOT ( 'Fila de Ações'[Código Ação] IN { "MAINTAIN", "EXPAND" } ) )
+		formatString: 0
+		displayFolder: Executivo
+		lineageTag: 3033e5d6-863c-48b6-9e79-fb3c794c2f62
+
+	/// Medida do produto Margem em Risco: Receita Líquida.
+	measure 'Receita Líquida' = SUM ( 'Desempenho Mensal'[Receita Líquida] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Financeiro
+		lineageTag: dfd77936-dd63-4165-830c-9e6c2733bd89
+
+	/// Medida do produto Margem em Risco: Custo Total.
+	measure 'Custo Total' = SUM ( 'Desempenho Mensal'[Custo Total] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Financeiro
+		lineageTag: 0da30205-e5fd-469f-9031-263d1bd2306f
+
+	/// Medida do produto Margem em Risco: Margem de Contribuição.
+	measure 'Margem de Contribuição' = [Receita Líquida] - [Custo Total]
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Financeiro
+		lineageTag: 0e798d88-903d-48d2-b3cd-690af627e664
+
+	/// Medida do produto Margem em Risco: Margem %.
+	measure 'Margem %' = DIVIDE ( [Margem de Contribuição], [Receita Líquida] )
+		formatString: 0.0%
+		displayFolder: Financeiro
+		lineageTag: 5bf455d0-d2a2-474d-bce4-77e0e048b637
+
+	/// Medida do produto Margem em Risco: Meta Margem Ponderada.
+	measure 'Meta Margem Ponderada' = DIVIDE ( SUMX ( 'Desempenho Mensal', 'Desempenho Mensal'[Receita Líquida] * 'Desempenho Mensal'[Meta Margem %] ), [Receita Líquida] )
+		formatString: 0.0%
+		displayFolder: Financeiro
+		lineageTag: 378a7c67-924b-45e5-8bce-5d18a9e81d2d
+
+	/// Medida do produto Margem em Risco: Gap de Margem p.p..
+	measure 'Gap de Margem p.p.' = ( [Margem %] - [Meta Margem Ponderada] ) * 100
+		formatString: 0.0
+		displayFolder: Financeiro
+		lineageTag: f47c462a-38e1-47ad-85d8-81e43f15c576
+
+	/// Medida do produto Margem em Risco: Vazamento de Margem.
+	measure 'Vazamento de Margem' = SUM ( 'Desempenho Mensal'[Vazamento Margem] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Financeiro
+		lineageTag: ad02c40f-0d88-4575-bcab-67108a4f1dee
+
+	/// Medida do produto Margem em Risco: Perda Identificada.
+	measure 'Perda Identificada' = SUM ( 'Perdas de Margem'[Valor Perda] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Financeiro
+		lineageTag: 44c70f4e-781f-4579-9e29-492e34532262
+
+	/// Medida do produto Margem em Risco: Valor Recuperável.
+	measure 'Valor Recuperável' = SUM ( 'Perdas de Margem'[Valor Recuperável] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Financeiro
+		lineageTag: 0d39ce8e-7939-4078-ba4b-b0d17aa7f394
+
+	/// Medida do produto Margem em Risco: Score de Risco Ponderado.
+	measure 'Score de Risco Ponderado' = DIVIDE ( SUMX ( 'Portfólio Atual', 'Portfólio Atual'[Score Risco] * 'Portfólio Atual'[Receita Líquida] ), SUM ( 'Portfólio Atual'[Receita Líquida] ) )
+		formatString: 0.0
+		displayFolder: Risco
+		lineageTag: 91866cdd-485f-4952-966f-664638772142
+
+	/// Medida do produto Margem em Risco: Cobertura %.
+	measure 'Cobertura %' = DIVIDE ( SUM ( 'Desempenho Mensal'[Postos Ocupados] ), SUM ( 'Desempenho Mensal'[Postos Previstos] ) )
+		formatString: 0.0%
+		displayFolder: Operação
+		lineageTag: aaec7f88-4766-4544-8277-9eb94cbebc88
+
+	/// Medida do produto Margem em Risco: Horas Extras %.
+	measure 'Horas Extras %' = DIVIDE ( SUM ( 'Desempenho Mensal'[Horas Extras] ), SUM ( 'Desempenho Mensal'[Horas Regulares] ) )
+		formatString: 0.0%
+		displayFolder: Operação
+		lineageTag: 02a2570b-cf6a-43a9-916c-a68b2dfa2127
+
+	/// Medida do produto Margem em Risco: Absenteísmo %.
+	measure 'Absenteísmo %' = DIVIDE ( SUM ( 'Desempenho Mensal'[Horas Ausência] ), SUM ( 'Desempenho Mensal'[Horas Previstas] ) )
+		formatString: 0.0%
+		displayFolder: Operação
+		lineageTag: 4f2870b1-3a07-483c-b8c9-a86399678e4a
+
+	/// Medida do produto Margem em Risco: SLA %.
+	measure 'SLA %' = VAR Ocorrencias = SUM ( 'Desempenho Mensal'[Quantidade Ocorrências] ) RETURN IF ( Ocorrencias = 0, 1, DIVIDE ( SUMX ( 'Desempenho Mensal', 'Desempenho Mensal'[SLA %] * 'Desempenho Mensal'[Quantidade Ocorrências] ), Ocorrencias ) )
+		formatString: 0.0%
+		displayFolder: Operação
+		lineageTag: ed2ff11e-6741-470f-a4ba-afe6e6e2923d
+
+	/// Medida do produto Margem em Risco: Margem % Mês Anterior.
+	measure 'Margem % Mês Anterior' = CALCULATE ( [Margem %], DATEADD ( 'Calendário'[Data], -1, MONTH ) )
+		formatString: 0.0%
+		displayFolder: Tempo
+		lineageTag: 286c91e4-7e58-4cb7-9345-97efc6ae57b3
+
+	/// Medida do produto Margem em Risco: Variação Margem p.p..
+	measure 'Variação Margem p.p.' = ( [Margem %] - [Margem % Mês Anterior] ) * 100
+		formatString: 0.0
+		displayFolder: Tempo
+		lineageTag: 33935fdc-0365-4b28-b945-68daef0edc26
+
+	/// Medida do produto Margem em Risco: Receita Líquida 12M.
+	measure 'Receita Líquida 12M' = CALCULATE ( [Receita Líquida], DATESINPERIOD ( 'Calendário'[Data], MAX ( 'Calendário'[Data] ), -12, MONTH ) )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Tempo
+		lineageTag: d859652f-2516-4878-b58a-ec763bb0a36b
+
+	/// Medida do produto Margem em Risco: Período Selecionado.
+	measure 'Período Selecionado' = VAR DataMin = MIN ( 'Calendário'[Data] ) VAR DataMax = MAX ( 'Calendário'[Data] ) RETURN FORMAT ( DataMin, "mmm/yyyy" ) & " a " & FORMAT ( DataMax, "mmm/yyyy" )
+		displayFolder: Contexto
+		lineageTag: d6f3b6c7-0fe9-4b7c-aa9b-a9faa6922a96
+
+	/// Medida auxiliar para a matriz Margem x Risco.
+	measure 'Margem Contrato Atual' = AVERAGE ( 'Portfólio Atual'[Margem %] )
+		formatString: 0.0%
+		displayFolder: Visualizações\Portfólio
+
+	/// Medida auxiliar para a matriz Margem x Risco.
+	measure 'Score Risco Atual' = MAX ( 'Portfólio Atual'[Score Risco] )
+		formatString: 0.0
+		displayFolder: Visualizações\Portfólio
+
+	/// Medida auxiliar para dimensionar os contratos no gráfico de dispersão.
+	measure 'Receita Contrato Atual' = SUM ( 'Portfólio Atual'[Receita Líquida] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Visualizações\Portfólio
+
+	/// Medida usada na fila executiva.
+	measure 'Margem Fila' = MAX ( 'Fila de Ações'[Margem %] )
+		formatString: 0.0%
+		displayFolder: Visualizações\Fila de Ações
+
+	/// Medida usada na fila executiva.
+	measure 'Score Risco Fila' = MAX ( 'Fila de Ações'[Score Risco] )
+		formatString: 0.0
+		displayFolder: Visualizações\Fila de Ações
+
+	/// Medida usada na fila executiva.
+	measure 'Valor Recuperável Fila' = SUM ( 'Fila de Ações'[Valor Recuperável] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Visualizações\Fila de Ações
+
+	/// Medida usada na fila executiva.
+	measure 'Impacto Ação Fila' = SUM ( 'Fila de Ações'[Impacto Ação] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Visualizações\Fila de Ações
+
+
+	/// Dias restantes para renovação do contrato selecionado.
+	measure 'Dias para Renovação Atual' = COALESCE ( MAX ( 'Portfólio Atual'[Dias para Renovação] ), 0 )
+		formatString: 0
+		displayFolder: Contrato 360
+
+	/// Pontuação do fator de risco na competência mais recente.
+	measure 'Pontuação Fator Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Fatores de Risco'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					MAX ( 'Fatores de Risco'[Pontuação Fator] ),
+					'Fatores de Risco'[Mês Referência] = UltimoMes
+				)
+		formatString: 0.0
+		displayFolder: Contrato 360
+
+	/// Impacto estimado do fator de risco na competência mais recente.
+	measure 'Impacto Fator Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Fatores de Risco'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					SUM ( 'Fatores de Risco'[Impacto Estimado] ),
+					'Fatores de Risco'[Mês Referência] = UltimoMes
+				)
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Contrato 360
+
+	/// Impacto financeiro registrado nos eventos da linha do tempo.
+	measure 'Impacto Evento' = SUM ( 'Linha do Tempo'[Impacto Financeiro] )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Contrato 360
+
+
+	/// Cobertura operacional na competência mais recente.
+	measure 'Cobertura Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					DIVIDE (
+						SUM ( 'Desempenho Mensal'[Postos Ocupados] ),
+						SUM ( 'Desempenho Mensal'[Postos Previstos] )
+					),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0.0%
+		displayFolder: Eficiência Operacional
+
+	/// Horas extras na competência mais recente.
+	measure 'Horas Extras Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					DIVIDE (
+						SUM ( 'Desempenho Mensal'[Horas Extras] ),
+						SUM ( 'Desempenho Mensal'[Horas Regulares] )
+					),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0.0%
+		displayFolder: Eficiência Operacional
+
+	/// Absenteísmo na competência mais recente.
+	measure 'Absenteísmo Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					DIVIDE (
+						SUM ( 'Desempenho Mensal'[Horas Ausência] ),
+						SUM ( 'Desempenho Mensal'[Horas Previstas] )
+					),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0.0%
+		displayFolder: Eficiência Operacional
+
+	/// Postos descobertos na competência mais recente.
+	measure 'Postos Descobertos Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					SUM ( 'Desempenho Mensal'[Postos Descobertos] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0
+		displayFolder: Eficiência Operacional
+
+	/// Vagas abertas na competência mais recente.
+	measure 'Vagas Abertas Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					SUM ( 'Desempenho Mensal'[Vagas Abertas] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0
+		displayFolder: Eficiência Operacional
+
+	/// SLA na competência mais recente.
+	measure 'SLA Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					AVERAGE ( 'Desempenho Mensal'[SLA %] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0.0%
+		displayFolder: Qualidade e SLA
+
+	/// Ocorrências na competência mais recente.
+	measure 'Ocorrências Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					SUM ( 'Desempenho Mensal'[Quantidade Ocorrências] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0
+		displayFolder: Qualidade e SLA
+
+	/// Ocorrências críticas na competência mais recente.
+	measure 'Ocorrências Críticas Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					SUM ( 'Desempenho Mensal'[Ocorrências Críticas] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0
+		displayFolder: Qualidade e SLA
+
+	/// Ocorrências reincidentes na competência mais recente.
+	measure 'Ocorrências Reincidentes Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					SUM ( 'Desempenho Mensal'[Ocorrências Reincidentes] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0
+		displayFolder: Qualidade e SLA
+
+	/// Componente de risco de qualidade na fotografia atual.
+	measure 'Risco Qualidade Atual' = COALESCE ( MAX ( 'Portfólio Atual'[Risco Qualidade] ), 0 )
+		formatString: 0.0
+		displayFolder: Qualidade e SLA
+
+	/// Meta mínima de SLA.
+	measure 'Meta SLA' = 0.95
+		formatString: 0.0%
+		displayFolder: Qualidade e SLA
+
+	/// Contratos que renovam nos próximos 90 dias.
+	measure 'Contratos Renovação 90d' =
+			CALCULATE (
+				DISTINCTCOUNT ( 'Portfólio Atual'[Código Contrato] ),
+				FILTER (
+					'Portfólio Atual',
+					'Portfólio Atual'[Dias para Renovação] >= 0
+						&& 'Portfólio Atual'[Dias para Renovação] <= 90
+				)
+			)
+		formatString: 0
+		displayFolder: Reajustes e Renovação
+
+	/// Receita mensal dos contratos que renovam nos próximos 90 dias.
+	measure 'Receita Renovação 90d' =
+			CALCULATE (
+				SUM ( 'Portfólio Atual'[Receita Líquida] ),
+				FILTER (
+					'Portfólio Atual',
+					'Portfólio Atual'[Dias para Renovação] >= 0
+						&& 'Portfólio Atual'[Dias para Renovação] <= 90
+				)
+			)
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Reajustes e Renovação
+
+	/// Reajustes abertos na competência mais recente.
+	measure 'Reajustes Abertos Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					SUM ( 'Desempenho Mensal'[Reajustes Abertos] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes
+				)
+		formatString: 0
+		displayFolder: Reajustes e Renovação
+
+	/// Contratos com algum reajuste aberto na competência mais recente.
+	measure 'Contratos com Reajuste Aberto Atual' =
+			VAR UltimoMes =
+				CALCULATE (
+					MAX ( 'Desempenho Mensal'[Mês Referência] ),
+					REMOVEFILTERS ( 'Calendário' )
+				)
+			RETURN
+				CALCULATE (
+					DISTINCTCOUNT ( 'Desempenho Mensal'[Código Contrato] ),
+					'Desempenho Mensal'[Mês Referência] = UltimoMes,
+					'Desempenho Mensal'[Reajustes Abertos] > 0
+				)
+		formatString: 0
+		displayFolder: Reajustes e Renovação
+
+	/// Valor recuperável nos contratos com renovação em até 90 dias.
+	measure 'Valor Recuperável Renovação 90d' =
+			CALCULATE (
+				SUM ( 'Portfólio Atual'[Valor Recuperável] ),
+				FILTER (
+					'Portfólio Atual',
+					'Portfólio Atual'[Dias para Renovação] >= 0
+						&& 'Portfólio Atual'[Dias para Renovação] <= 90
+				)
+			)
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Reajustes e Renovação
+
+	/// Quantidade histórica de reajustes abertos.
+	measure 'Reajustes Abertos' = SUM ( 'Desempenho Mensal'[Reajustes Abertos] )
+		formatString: 0
+		displayFolder: Reajustes e Renovação
+
+	/// Contratos com reajuste aberto no contexto de tempo.
+	measure 'Contratos com Reajuste Aberto' =
+			CALCULATE (
+				DISTINCTCOUNT ( 'Desempenho Mensal'[Código Contrato] ),
+				'Desempenho Mensal'[Reajustes Abertos] > 0
+			)
+		formatString: 0
+		displayFolder: Reajustes e Renovação
+
+	/// Dias restantes para renovação por contrato.
+	measure 'Dias Renovação Contrato' = COALESCE ( MAX ( 'Portfólio Atual'[Dias para Renovação] ), 0 )
+		formatString: 0
+		displayFolder: Reajustes e Renovação
+
+	/// Valor recuperável do contrato sem filtro adicional de score.
+	measure 'Valor Recuperável Contrato' = COALESCE ( SUM ( 'Portfólio Atual'[Valor Recuperável] ), 0 )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Reajustes e Renovação
+
+	/// Ações com data de conclusão.
+	measure 'Ações Concluídas' =
+			CALCULATE (
+				COUNTROWS ( 'Efeito das Ações' ),
+				NOT ISBLANK ( 'Efeito das Ações'[Data Conclusão] )
+			)
+		formatString: 0
+		displayFolder: Efeito das Ações
+
+	/// Impacto financeiro realizado pelas ações.
+	measure 'Impacto Realizado' = COALESCE ( SUM ( 'Efeito das Ações'[Impacto Realizado] ), 0 )
+		formatString: R$ #,##0;[Red]-R$ #,##0
+		displayFolder: Efeito das Ações
+
+	/// Margem média antes da execução das ações.
+	measure 'Margem Antes Média' = AVERAGE ( 'Efeito das Ações'[Margem Antes %] )
+		formatString: 0.0%
+		displayFolder: Efeito das Ações
+
+	/// Margem média após a execução das ações.
+	measure 'Margem Depois Média' = AVERAGE ( 'Efeito das Ações'[Margem Depois %] )
+		formatString: 0.0%
+		displayFolder: Efeito das Ações
+
+	/// Ganho médio de margem em pontos percentuais.
+	measure 'Ganho Margem p.p.' = AVERAGE ( 'Efeito das Ações'[Variação Margem p.p.] )
+		formatString: 0.0
+		displayFolder: Efeito das Ações
+
+	/// Variação média de SLA em pontos percentuais.
+	measure 'Ganho SLA p.p.' =
+			(
+				AVERAGE ( 'Efeito das Ações'[SLA Depois %] )
+					- AVERAGE ( 'Efeito das Ações'[SLA Antes %] )
+			) * 100
+		formatString: 0.0
+		displayFolder: Efeito das Ações
+
+	/// Variação média de cobertura em pontos percentuais.
+	measure 'Ganho Cobertura p.p.' =
+			(
+				AVERAGE ( 'Efeito das Ações'[Cobertura Depois %] )
+					- AVERAGE ( 'Efeito das Ações'[Cobertura Antes %] )
+			) * 100
+		formatString: 0.0
+		displayFolder: Efeito das Ações
+
+	/// Redução média de horas extras em pontos percentuais.
+	measure 'Redução Horas Extras p.p.' =
+			(
+				AVERAGE ( 'Efeito das Ações'[Horas Extras Antes %] )
+					- AVERAGE ( 'Efeito das Ações'[Horas Extras Depois %] )
+			) * 100
+		formatString: 0.0
+		displayFolder: Efeito das Ações
+
+	partition Métricas = calculated
+		mode: import
+		source = ROW("Ordem", 1)

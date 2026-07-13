@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "ReportSection82517c1e59ee42e682ed1f85",
+  "displayName": "Contrato 360º",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

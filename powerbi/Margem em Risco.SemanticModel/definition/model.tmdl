@@ -1,0 +1,24 @@
+/// Camada analítica do produto Margem em Risco.
+model 'Margem em Risco'
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_ProTooling = ["MCP-PBIModeling"]
+
+ref table Calendário
+ref table Contratos
+ref table 'Resumo Executivo'
+ref table 'Portfólio Atual'
+ref table 'Desempenho Mensal'
+ref table 'Perdas de Margem'
+ref table 'Fatores de Risco'
+ref table 'Fila de Ações'
+ref table 'Efeito das Ações'
+ref table 'Linha do Tempo'
+ref table Métricas
+

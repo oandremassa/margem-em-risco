@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="360" viewBox="0 0 1400 360">
+  <rect width="1400" height="360" fill="#FFFFFF"/>
+  <text x="65" y="58" font-family="Segoe UI, Arial" font-size="28" font-weight="700" fill="#0B1F33">Fluxo de decisão no dashboard</text>
+  <g font-family="Segoe UI, Arial">
+    <g transform="translate(65,115)"><circle cx="55" cy="55" r="55" fill="#E9F0FF"/>
+      <text x="55" y="49" text-anchor="middle" font-size="17" font-weight="700" fill="#0B1F33">1</text>
+      <text x="55" y="74" text-anchor="middle" font-size="14" fill="#344054">Exposição</text>
+      <text x="55" y="94" text-anchor="middle" font-size="14" fill="#344054">financeira</text></g>
+    <g transform="translate(305,115)"><circle cx="55" cy="55" r="55" fill="#E9F0FF"/>
+      <text x="55" y="49" text-anchor="middle" font-size="17" font-weight="700" fill="#0B1F33">2</text>
+      <text x="55" y="74" text-anchor="middle" font-size="14" fill="#344054">Tendência</text>
+      <text x="55" y="94" text-anchor="middle" font-size="14" fill="#344054">de margem</text></g>
+    <g transform="translate(545,115)"><circle cx="55" cy="55" r="55" fill="#E9F0FF"/>
+      <text x="55" y="49" text-anchor="middle" font-size="17" font-weight="700" fill="#0B1F33">3</text>
+      <text x="55" y="74" text-anchor="middle" font-size="14" fill="#344054">Margem</text>
+      <text x="55" y="94" text-anchor="middle" font-size="14" fill="#344054">x risco</text></g>
+    <g transform="translate(785,115)"><circle cx="55" cy="55" r="55" fill="#FFF3D6"/>
+      <text x="55" y="49" text-anchor="middle" font-size="17" font-weight="700" fill="#0B1F33">4</text>
+      <text x="55" y="74" text-anchor="middle" font-size="14" fill="#344054">Fila de</text>
+      <text x="55" y="94" text-anchor="middle" font-size="14" fill="#344054">ação</text></g>
+    <g transform="translate(1025,115)"><circle cx="55" cy="55" r="55" fill="#FFE7E7"/>
+      <text x="55" y="49" text-anchor="middle" font-size="17" font-weight="700" fill="#0B1F33">5</text>
+      <text x="55" y="74" text-anchor="middle" font-size="14" fill="#344054">Contrato</text>
+      <text x="55" y="94" text-anchor="middle" font-size="14" fill="#344054">360º</text></g>
+    <g transform="translate(1265,115)"><circle cx="55" cy="55" r="55" fill="#E3F3E9"/>
+      <text x="55" y="49" text-anchor="middle" font-size="17" font-weight="700" fill="#0B1F33">6</text>
+      <text x="55" y="74" text-anchor="middle" font-size="14" fill="#344054">Resultado</text>
+      <text x="55" y="94" text-anchor="middle" font-size="14" fill="#344054">observado</text></g>
+
+    <g stroke="#2F6BFF" stroke-width="4" fill="none">
+      <path d="M185 170 H294"/><path d="M425 170 H534"/><path d="M665 170 H774"/>
+      <path d="M905 170 H1014"/><path d="M1145 170 H1254"/>
+    </g>
+    <g fill="#2F6BFF">
+      <path d="M294 170 l-12 -7 v14 z"/><path d="M534 170 l-12 -7 v14 z"/>
+      <path d="M774 170 l-12 -7 v14 z"/><path d="M1014 170 l-12 -7 v14 z"/>
+      <path d="M1254 170 l-12 -7 v14 z"/>
+    </g>
+  </g>
+</svg>

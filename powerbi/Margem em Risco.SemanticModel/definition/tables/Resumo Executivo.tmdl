@@ -1,0 +1,90 @@
+/// Resumo mensal consolidado.
+table 'Resumo Executivo'
+	lineageTag: eca14372-f90e-4c18-a9b1-87d2dd658cac
+
+	column 'Mês Referência'
+		dataType: dateTime
+		lineageTag: d0279a3b-b059-44c5-9ae3-6071f36536fd
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+	column 'Contratos Ativos'
+		dataType: int64
+		lineageTag: 8666c2dd-c5fb-4427-9056-873258a6061c
+		summarizeBy: sum
+		sourceColumn: contratos_ativos
+
+	column 'Receita Líquida'
+		dataType: decimal
+		lineageTag: 7fbce9e7-3f01-4d29-bf82-f7b7be29e767
+		summarizeBy: sum
+		sourceColumn: receita_liquida
+
+	column 'Custo Total'
+		dataType: decimal
+		lineageTag: 9f7218e9-2d53-46cb-8146-c84cc558b70a
+		summarizeBy: sum
+		sourceColumn: custo_total
+
+	column 'Margem Contribuição'
+		dataType: decimal
+		lineageTag: 36c49373-4857-42a6-9a3b-013eb969d08c
+		summarizeBy: sum
+		sourceColumn: margem_contribuicao
+
+	column 'Margem %'
+		dataType: decimal
+		lineageTag: 11d04778-063d-432c-820c-cfb980a27018
+		summarizeBy: sum
+		sourceColumn: margem_pct
+
+	column 'Vazamento Margem'
+		dataType: decimal
+		lineageTag: 545a6a63-f9ac-4d10-8278-d15acc4645ab
+		summarizeBy: sum
+		sourceColumn: vazamento_margem
+
+	column 'Perda Identificada'
+		dataType: decimal
+		lineageTag: 1a752b48-49a5-42f6-92b9-b1fddd17aae9
+		summarizeBy: sum
+		sourceColumn: perda_identificada
+
+	column 'Valor Recuperável'
+		dataType: decimal
+		lineageTag: 142d2c41-b325-4693-84ab-a3992ccae21b
+		summarizeBy: sum
+		sourceColumn: valor_recuperavel
+
+	column 'Receita em Risco'
+		dataType: decimal
+		lineageTag: dc1a00a0-551f-49c8-a3ba-11c39c694bb1
+		summarizeBy: sum
+		sourceColumn: receita_em_risco
+
+	column 'Contratos Críticos'
+		dataType: int64
+		lineageTag: 48f205f6-3a92-469e-b303-9eea8de74e10
+		summarizeBy: sum
+		sourceColumn: contratos_criticos
+
+	column 'Contratos Alto Risco'
+		dataType: int64
+		lineageTag: c56aaf45-e7c1-4c18-aa3a-d248ae3eed81
+		summarizeBy: sum
+		sourceColumn: contratos_alto_risco
+
+	column 'Contratos com Ação'
+		dataType: int64
+		lineageTag: 8ac9573c-c8b7-414b-bf27-3cfcd6c06d66
+		summarizeBy: sum
+		sourceColumn: contratos_com_acao
+
+	partition 'Resumo Executivo' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_resumo_executivo"]}[Data]
+				in
+				    Dados

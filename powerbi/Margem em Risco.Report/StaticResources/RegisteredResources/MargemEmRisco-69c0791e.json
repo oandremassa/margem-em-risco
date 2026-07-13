@@ -1,0 +1,79 @@
+{
+  "name": "MargemEmRisco-69c0791e.json",
+  "dataColors": [
+    "#2F6BFF",
+    "#F4B740",
+    "#D64545",
+    "#2E8B57",
+    "#6E56CF",
+    "#0E7490",
+    "#98A2B3"
+  ],
+  "background": "#F4F6F8",
+  "foreground": "#0B1F33",
+  "tableAccent": "#2F6BFF",
+  "good": "#2E8B57",
+  "neutral": "#F4B740",
+  "bad": "#D64545",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 24,
+      "color": "#0B1F33"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#0B1F33"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#0B1F33"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#667085"
+    }
+  },
+  "visualStyles": {
+    "tableEx": {
+      "*": {
+        "columnHeaders": [
+          {
+            "autoSizeColumnWidth": true,
+            "columnAdjustment": "growToFit"
+          }
+        ]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "columnHeaders": [
+          {
+            "autoSizeColumnWidth": true,
+            "columnAdjustment": "growToFit"
+          }
+        ]
+      }
+    },
+    "*": {
+      "*": {
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ],
+        "padding": [
+          {
+            "top": 8,
+            "bottom": 8,
+            "left": 8,
+            "right": 8
+          }
+        ]
+      }
+    }
+  }
+}

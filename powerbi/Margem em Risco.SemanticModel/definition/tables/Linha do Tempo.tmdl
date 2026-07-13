@@ -1,0 +1,89 @@
+/// Eventos relevantes dos contratos.
+table 'Linha do Tempo'
+	lineageTag: 8a4f121b-4a23-4551-ad78-a6fbba18cd47
+
+	column 'Chave Evento'
+		dataType: int64
+		isHidden
+		isKey
+		lineageTag: 49cb62d6-972a-4979-bec8-8f3fcfda5d7e
+		summarizeBy: sum
+		sourceColumn: chave_evento
+
+	column 'Data Evento'
+		dataType: dateTime
+		lineageTag: 14e749a8-3bf4-4194-82df-8af515055fd7
+		summarizeBy: none
+		sourceColumn: data_evento
+
+	column 'Mês Referência'
+		dataType: dateTime
+		lineageTag: 130e2678-eba7-4afa-b88f-f597f7af0183
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		lineageTag: 05d71409-78b4-44b1-8069-0ed38e41683b
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: a59acdfb-f63a-4d9d-b971-da307926f395
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column 'Tipo Evento'
+		dataType: string
+		lineageTag: 51dd8c6b-1e5c-4655-be29-9a162ed94c46
+		summarizeBy: none
+		sourceColumn: tipo_evento
+
+	column Gravidade
+		dataType: string
+		lineageTag: b0bf568d-6a5b-4f45-acb9-f28890f9bdc2
+		summarizeBy: none
+		sourceColumn: gravidade
+
+	column 'Título Evento'
+		dataType: string
+		lineageTag: 7685c017-c8bd-47ae-90e3-8d4e279ac859
+		summarizeBy: none
+		sourceColumn: titulo_evento
+
+	column 'Detalhe Evento'
+		dataType: string
+		lineageTag: eed6d5cc-6d76-432c-936f-988b1e447d16
+		summarizeBy: none
+		sourceColumn: detalhe_evento
+
+	column 'Impacto Financeiro'
+		dataType: decimal
+		lineageTag: ac82610f-8816-4fd8-b522-d26ed72f1a6b
+		summarizeBy: sum
+		sourceColumn: impacto_financeiro
+
+	column 'Chave Origem'
+		dataType: int64
+		isHidden
+		lineageTag: 15eba131-3701-46e5-a3a4-372b352d245d
+		summarizeBy: sum
+		sourceColumn: chave_origem
+
+
+	column 'Evento Resumo'
+		dataType: string
+		lineageTag: 737b82aa-f5c5-4bdb-b06d-566f705e16b1
+		summarizeBy: none
+		sourceColumn: evento_resumo
+
+	partition 'Linha do Tempo' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_linha_tempo"]}[Data]
+				in
+				    Dados

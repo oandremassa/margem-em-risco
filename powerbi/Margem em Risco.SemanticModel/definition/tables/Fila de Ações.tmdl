@@ -1,0 +1,97 @@
+/// Prioridade gerencial atual por contrato.
+table 'Fila de Ações'
+	lineageTag: 9f30e0b0-8ead-466c-b556-2cc7ace52fdb
+
+	column 'Mês Referência'
+		dataType: dateTime
+		lineageTag: b2cb742f-3c3f-4917-928b-045f0e5eda05
+		summarizeBy: none
+		sourceColumn: mes_referencia
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		lineageTag: b6543d56-2afd-4c2c-8dca-74674cd28c72
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: 64114e72-6005-4f25-9e4a-f19ca11a13ee
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column Cliente
+		dataType: string
+		lineageTag: 8e55e081-0e36-4f68-aaa9-d167b2ebf062
+		summarizeBy: none
+		sourceColumn: cliente
+
+	column 'Margem %'
+		dataType: decimal
+		lineageTag: 797bc1f5-cd40-4ef8-b019-6029c3185983
+		summarizeBy: sum
+		sourceColumn: margem_pct
+
+	column 'Score Risco'
+		dataType: decimal
+		lineageTag: 8c9fcd4f-5491-47f8-beb3-0c3d50430f05
+		summarizeBy: sum
+		sourceColumn: score_risco
+
+	column 'Classe Risco'
+		dataType: string
+		lineageTag: ef3151c2-c9d7-423e-bf61-c7f962762aa0
+		summarizeBy: none
+		sourceColumn: classe_risco
+
+	column 'Código Ação'
+		dataType: string
+		lineageTag: fec12ec3-5d9a-4b90-b4d6-fc7e786385b5
+		summarizeBy: none
+		sourceColumn: codigo_acao
+
+	column 'Ação Recomendada'
+		dataType: string
+		lineageTag: ec546557-5d30-4197-a4a2-55127e8b1261
+		summarizeBy: none
+		sourceColumn: acao_recomendada
+
+	column Justificativa
+		dataType: string
+		lineageTag: b36406f6-92a5-4327-bdf1-e780a5584e65
+		summarizeBy: none
+		sourceColumn: justificativa
+
+	column 'Impacto Ação'
+		dataType: decimal
+		lineageTag: 6214220d-c389-4d50-b472-f73b020effc2
+		summarizeBy: sum
+		sourceColumn: impacto_acao
+
+	column 'Valor Recuperável'
+		dataType: decimal
+		lineageTag: bdf7c6be-9628-423b-b228-ac9673b5f9e8
+		summarizeBy: sum
+		sourceColumn: valor_recuperavel
+
+	column 'Score Prioridade'
+		dataType: decimal
+		lineageTag: 9dfdb741-59b0-4c10-905f-6cfd37db75af
+		summarizeBy: sum
+		sourceColumn: score_prioridade
+
+	column Prioridade
+		dataType: int64
+		lineageTag: 84160b03-524c-46da-9e59-dd399849a966
+		summarizeBy: sum
+		sourceColumn: prioridade
+
+	partition 'Fila de Ações' = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_fila_acoes"]}[Data]
+				in
+				    Dados

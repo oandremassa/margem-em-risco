@@ -1,0 +1,5 @@
+/// Modelo semântico para análise de rentabilidade e risco de contratos recorrentes.
+database 'Margem em Risco'
+	compatibilityLevel: 1604
+	language: 1046
+

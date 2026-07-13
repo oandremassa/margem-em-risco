@@ -1,0 +1,68 @@
+/// Cadastro atual dos contratos.
+table Contratos
+	lineageTag: f43c10d4-f4d5-4667-a02c-e13a2ec0af63
+
+	column 'Chave Contrato'
+		dataType: int64
+		isHidden
+		isKey
+		lineageTag: 862ef3a0-c913-4b75-801e-f7ae425469b1
+		summarizeBy: sum
+		sourceColumn: chave_contrato
+
+	column 'Código Contrato'
+		dataType: string
+		lineageTag: 0c3471dd-f5f9-47ef-adc3-e4c89b205f03
+		summarizeBy: none
+		sourceColumn: codigo_contrato
+
+	column Cliente
+		dataType: string
+		lineageTag: 43a24d73-7e17-43fd-ab72-40838703ef3d
+		summarizeBy: none
+		sourceColumn: cliente
+
+	column Segmento
+		dataType: string
+		lineageTag: 176a0b58-3219-4efd-990e-ee80ec5d3418
+		summarizeBy: none
+		sourceColumn: segmento
+
+	column Serviço
+		dataType: string
+		lineageTag: d2f64560-d206-4902-a57e-3fc9154c1df6
+		summarizeBy: none
+		sourceColumn: servico
+
+	column Gestor
+		dataType: string
+		lineageTag: fefeef04-7cca-4086-a960-06f610f21629
+		summarizeBy: none
+		sourceColumn: gestor
+
+	column Complexidade
+		dataType: string
+		lineageTag: 505704b5-049c-4bc2-b4ec-91d35c53a6ed
+		summarizeBy: none
+		sourceColumn: complexidade
+
+	column 'Data Renovação'
+		dataType: dateTime
+		lineageTag: d8198178-0614-4788-818b-b6f8ec53a39c
+		summarizeBy: none
+		sourceColumn: data_renovacao
+
+	column 'Meta Margem %'
+		dataType: decimal
+		lineageTag: 671ca4c0-78a3-404e-b42f-d2d65dc68370
+		summarizeBy: sum
+		sourceColumn: meta_margem_pct
+
+	partition Contratos = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_contratos"]}[Data]
+				in
+				    Dados

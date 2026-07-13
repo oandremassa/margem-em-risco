@@ -1,0 +1,48 @@
+relationship 'Desempenho Mensal_Chave Contrato_Contratos_Chave Contrato'
+	fromColumn: 'Desempenho Mensal'.'Chave Contrato'
+	toColumn: Contratos.'Chave Contrato'
+
+relationship 'Portfólio Atual_Chave Contrato_Contratos_Chave Contrato'
+	fromColumn: 'Portfólio Atual'.'Chave Contrato'
+	toColumn: Contratos.'Chave Contrato'
+
+relationship 'Perdas de Margem_Chave Contrato_Contratos_Chave Contrato'
+	fromColumn: 'Perdas de Margem'.'Chave Contrato'
+	toColumn: Contratos.'Chave Contrato'
+
+relationship 'Fatores de Risco_Chave Contrato_Contratos_Chave Contrato'
+	fromColumn: 'Fatores de Risco'.'Chave Contrato'
+	toColumn: Contratos.'Chave Contrato'
+
+relationship 'Fila de Ações_Chave Contrato_Contratos_Chave Contrato'
+	fromColumn: 'Fila de Ações'.'Chave Contrato'
+	toColumn: Contratos.'Chave Contrato'
+
+relationship 'Efeito das Ações_Chave Contrato_Contratos_Chave Contrato'
+	fromColumn: 'Efeito das Ações'.'Chave Contrato'
+	toColumn: Contratos.'Chave Contrato'
+
+relationship 'Linha do Tempo_Chave Contrato_Contratos_Chave Contrato'
+	fromColumn: 'Linha do Tempo'.'Chave Contrato'
+	toColumn: Contratos.'Chave Contrato'
+
+relationship 'Desempenho Mensal_Mês Referência_Calendário_Data'
+	fromColumn: 'Desempenho Mensal'.'Mês Referência'
+	toColumn: Calendário.Data
+
+relationship 'Resumo Executivo_Mês Referência_Calendário_Data'
+	fromColumn: 'Resumo Executivo'.'Mês Referência'
+	toColumn: Calendário.Data
+
+relationship 'Perdas de Margem_Mês Referência_Calendário_Data'
+	fromColumn: 'Perdas de Margem'.'Mês Referência'
+	toColumn: Calendário.Data
+
+relationship 'Fatores de Risco_Mês Referência_Calendário_Data'
+	fromColumn: 'Fatores de Risco'.'Mês Referência'
+	toColumn: Calendário.Data
+
+relationship 'Linha do Tempo_Mês Referência_Calendário_Data'
+	fromColumn: 'Linha do Tempo'.'Mês Referência'
+	toColumn: Calendário.Data
+

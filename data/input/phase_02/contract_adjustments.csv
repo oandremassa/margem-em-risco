@@ -1,0 +1,8 @@
+﻿adjustment_number;contract_code;process_type;expected_date;requested_date;approved_date;requested_pct;approved_pct;previous_amount;approved_amount;retroactive_flag;retroactive_amount;process_status;pending_reason
+AJ-2024-002;CT-002;Reajuste;15/05/2024;10/05/2024;20/01/2025;6,50%;6,00%;R$ 198.113,21;R$ 210.000,00;Sim;R$ 71.320,74;Aprovado;Aprovação concluída com oito meses de atraso
+AJ-2024-008;CT-008;Reajuste;01/09/2024;20/08/2024;;7,10%;;R$ 410.000,00;;Não;R$ 0,00;Solicitado;Em análise pelo cliente
+AJ-2024-005;CT-005;Renegociação;10/09/2024;15/08/2024;;18,00%;;R$ 128.000,00;;Não;R$ 0,00;Pendente;Cliente solicitou revisão do escopo
+AJ-2025-007;CT-007;Reajuste;01/03/2025;20/01/2025;;5,20%;;R$ 265.000,00;;Não;R$ 0,00;Solicitado;Negociação dentro do prazo
+AJ-2025-010;CT-010;Repactuação;01/01/2025;02/12/2024;15/01/2025;4,80%;4,50%;R$ 660.287,08;R$ 690.000,00;Sim;R$ 29.712,92;Aprovado;Aplicação retroativa a janeiro
+AJ-2025-999;CT-999;Reajuste;01/01/2025;01/12/2024;;5,00%;;R$ 100.000,00;;Não;R$ 0,00;Solicitado;Contrato inexistente
+AJ-ERR;CT-001;Reajuste;data inválida;;;abc;;R$ 580.000,00;;Não;R$ 0,00;Pendente;Data inválida

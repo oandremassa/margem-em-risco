@@ -1,0 +1,70 @@
+/// Calendário diário do modelo.
+table Calendário
+	lineageTag: 76268820-92bc-462f-aa40-6e44e03281bf
+	dataCategory: Time
+
+	column Data
+		dataType: dateTime
+		isUnique
+		isKey
+		lineageTag: 2a02921d-9f21-45ef-a6ae-360695703cea
+		summarizeBy: none
+		sourceColumn: data
+
+	column 'Chave Data'
+		dataType: int64
+		isHidden
+		lineageTag: 4997b5a3-fffd-402c-a0c2-64459aa9c640
+		summarizeBy: sum
+		sourceColumn: chave_data
+
+	column 'Início do Mês'
+		dataType: dateTime
+		lineageTag: 8faa88a8-2bba-4971-b282-fdef976c4e20
+		summarizeBy: none
+		sourceColumn: inicio_mes
+
+	column 'Número do Mês'
+		dataType: int64
+		lineageTag: a1274a57-7172-4583-972a-85e649193d7f
+		summarizeBy: sum
+		sourceColumn: numero_mes
+
+	column Mês
+		dataType: string
+		lineageTag: 2a0608db-6578-4c2d-a947-a20c3d21079d
+		summarizeBy: none
+		sourceColumn: mes
+
+	column Trimestre
+		dataType: int64
+		lineageTag: e8699e0c-776d-4835-8435-83ee1beaac30
+		summarizeBy: sum
+		sourceColumn: trimestre
+
+	column Ano
+		dataType: int64
+		lineageTag: 10d4cd84-90cd-4730-81f4-ee7e1b569166
+		summarizeBy: sum
+		sourceColumn: ano
+
+	column Ano-Mês
+		dataType: string
+		lineageTag: 69bca0f5-1eb2-442b-8047-c5930f6335a3
+		summarizeBy: none
+		sourceColumn: ano_mes
+
+	column 'Dia Útil'
+		dataType: boolean
+		lineageTag: 58d63466-efea-49fb-83cd-b31c67c36b5b
+		summarizeBy: none
+		sourceColumn: dia_util
+
+	partition Calendário = m
+		mode: import
+		source =
+				let
+				    Fonte = Sql.Database("localhost", "margem_em_risco", [CreateNavigationProperties=false]),
+				    Dados = Fonte{[Schema="bi", Item="vw_calendario"]}[Data]
+				in
+				    Dados
